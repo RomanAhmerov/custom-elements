@@ -1,0 +1,442 @@
+/* montserrat-regular - cyrillic */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Montserrat Regular'), local('Montserrat-Regular'),
+         url('../fonts/montserrat-v15-cyrillic-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/montserrat-v15-cyrillic-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+  
+/* montserrat-600 - cyrillic */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Montserrat SemiBold'), local('Montserrat-SemiBold'),
+            url('../fonts/montserrat-v15-cyrillic-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+            url('../fonts/montserrat-v15-cyrillic-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* montserrat-700 - cyrillic */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Montserrat Bold'), local('Montserrat-Bold'),
+            url('../fonts/montserrat-v15-cyrillic-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+            url('../fonts/montserrat-v15-cyrillic-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* montserrat-800 - cyrillic */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    src: local('Montserrat ExtraBold'), local('Montserrat-ExtraBold'),
+            url('../fonts/montserrat-v15-cyrillic-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+            url('../fonts/montserrat-v15-cyrillic-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* Variables */
+:root {
+/* Color */
+    --color-1: #333333;
+    --color-2: #fff;
+    --color-3: #ff9900;
+    --color-4: #cacaca;
+    --color-5: #222222;
+    --color-6: #414141;
+    --color-7: #ececec;
+    --color-8: #666666;
+    --color-9: #e1670e;
+    --color-10: #ccb26e;
+    
+}
+
+* {
+    box-sizing: border-box;
+
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-1);
+}
+
+body {
+    width: 2500px;
+    height: 640px;
+
+    overflow-x: auto;
+
+    background-color: #424242;
+}
+
+.container {
+    display: flex;
+    justify-items: flex-start;
+    align-items: flex-start;
+    margin-top: 70px;
+    margin-left: 92px;
+    padding: 0;
+    max-width: none;
+}
+
+.container__item:not(:last-child) {
+    margin-right: 58px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* Line break element */
+.line-break {
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+/* Checkbox (custom) */
+
+.checkbox {
+    padding-top: 21px;
+    padding-left: 30px;
+    width: 176px;
+    min-height: 309px;
+    border-radius: 10px;
+
+    background-color: var(--color-2);
+}
+
+.checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-wrapper__title {
+    margin-bottom: 20px;
+
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.checkbox-item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.checkbox-item__label {
+    position: relative;
+    padding-left: 26px;
+}
+
+.checkbox-item__input {
+    display: none;
+}
+
+.checkbox-item__check-icon {
+    position: absolute;
+    left: 0;
+    width: 15px;
+    height: 15px;
+
+    background-image: url(../img/checkbox/checkbox.svg);
+}
+
+.checkbox-item__check-icon::before {
+    content: url(../img/checkbox/checkbox-active.svg);
+    position: absolute;
+
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.checkbox-item__input:checked + .checkbox-item__check-icon::before {
+    opacity: 1;
+}
+
+/* Select (custom) */
+
+.select {
+    width: 176px;
+}
+
+.choices__item {
+    position: relative;
+}
+
+.choices {
+    position: relative;
+}
+
+.choices__inner {
+    position: absolute;
+
+    border: 1px solid var(--color-2);
+    border-radius: 10px;
+
+    z-index: 1;
+}
+
+.is-open .choices__inner {
+    border: 1px solid var(--color-10);
+    border-radius: 10px;
+}
+
+.is-focused .choices__inner {
+    border-color: var(--color-10);
+}
+
+.choices__placeholder {
+    opacity: 1;
+}
+
+.choices__list--dropdown {
+    top: 34px;
+
+    padding-top: 15px;
+
+    padding-bottom: 10px;
+
+    z-index: 0;
+}
+
+.choices__list--dropdown .choices__item--selectable {
+    padding-right: 10px; 
+}
+
+.choices__item {
+    padding-right: 0;
+}
+
+.is-open 
+.choices__list--dropdown {
+    border: 1px solid var(--color-10);
+    border-radius: 0 0 10px 10px;
+}
+
+.choices__list--dropdown .choices__item--selectable:after {
+    display: none;
+}
+
+.is-active .choices__item[data-id="1"] {
+    display: none;
+}
+
+.choices[data-type*=select-one]:after {
+    content: url(../img/select/arrow.svg);
+
+    top: 12px;
+    left: 150px;
+
+    z-index: 1;
+
+/* Отменяем некоторые стандартные стили */
+    border-style: solid;
+    border-color: #333 transparent transparent;
+    border-width: 0;
+    position: absolute;
+    right: 0;
+    margin-top: 0;
+}
+
+.choices[data-type*=select-one].is-open:after {
+    content: url(../img/select/arrowActive.svg);
+
+    margin-top: 4px;
+}
+
+/* Yandex Maps (custom) */
+#map {
+    width: 460px;
+    height: 460px;
+}
+
+[class*="ground-pane"] {
+    /* filter: invert(1); */
+    filter: grayscale(1);
+}
+
+/* ScrollBar (custom) */
+.simplebar-content-wrapper {
+    overflow: auto;
+  }
+
+.scrollbar__box {
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+    width: 400px;
+    max-height: 310px;
+
+    line-height: 23.8px;
+    
+    background-color: #fff;
+}
+
+.simplebar-track.simplebar-vertical {
+    top: 5px;
+    right: 4px;
+    bottom: 5px;
+}
+
+.simplebar-scrollbar::before {
+    background-color: var(--color-10);
+}
+
+.simplebar-scrollbar.simplebar-visible::before {
+    /* When hovered, remove all transitions from drag handle */
+    opacity: 1;
+  }
+
+/* Form validation and phone mask */
+.form {
+    padding: 38px 30px;
+    width: 440px;
+    border-radius: 10px;
+
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+.form__label {
+    position: relative;
+    display: block;
+  }
+  
+.form__input {
+    margin-bottom: 30px;
+    padding-left: 20px;
+    width: 100%;
+    height: 60px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 19px;
+    color: #333;
+
+    background: #fff;
+}
+
+.form__input::placeholder {
+    color: #999;
+}
+
+.form__btn {
+    padding: 18px 53px;
+    border: none;
+    border-radius: 10px;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: #fff;
+
+    background: #ff5c00;
+
+    cursor: pointer;
+}
+
+/* Tooltip (custom) */
+.tooltip {
+    position: relative;
+
+    margin-right: 36px;
+    padding: 20px 74px 20px 29px;
+    width: 375px;
+
+    background-color: var(--color-2);
+}
+
+.text {
+    line-height: 23.8px;
+}
+
+.tooltip__icon {
+    position: absolute;
+    bottom: 26px;
+    left: 272px;
+
+    width: 16px;
+    height: 16px;
+
+    background-image: url(../img/tooltip/tooltipIcon.svg);
+
+    transition: background-image 0.3s ease-in-out;
+}
+
+.tooltip__wrapper-direction {
+    position: absolute;
+    bottom: 45px;
+    left: 272px;
+
+    width: 16px;
+    height: 14px;
+
+    background-image: url(../img/tooltip/tooltipIconWrapperDirection.svg);
+    opacity: 0;
+}
+
+.tooltip__wrapper {
+    position: absolute;
+    bottom: 52px;
+    left: 199px;
+
+    display: flex;
+    justify-content: center;
+    width: 163px;
+
+    opacity: 0;
+}
+
+.tooltip__description {
+    display: block;
+    padding: 7px 13px;
+    max-width: 163px;
+
+    background-color: var(--color-8);
+}
+
+.tooltip__description_text {
+    max-width: 134px;
+
+    font-size: 12px;
+    font-weight: 600;
+    word-wrap: break-word;
+
+    color: var(--color-2);
+}
+
+/* Hover */
+.tooltip__icon:hover {
+    background-image: url(../img/tooltip/tooltipIconActive.svg);
+}
+
+.tooltip__icon:hover ~ .tooltip__wrapper-direction {
+    opacity: 1;
+}
+
+.tooltip__icon:hover ~ .tooltip__wrapper {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Кастомные элементы</title>
+
+        <!-- Select (custom) -->
+        <!-- choises library -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/base.min.css"/>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+
+        <!-- Yandex Maps (custom) -->
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            // Функция ymaps.ready() будет вызвана, когда
+            // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+            ymaps.ready(init);
+            function init(){
+                // Создание карты.
+                var myMap = new ymaps.Map("map", {
+                    // Координаты центра карты.
+                    // Порядок по умолчанию: «широта, долгота».
+                    // Чтобы не определять координаты центра карты вручную,
+                    // воспользуйтесь инструментом Определение координат.
+                    center: [48.87261362436407, 2.354904197346709],
+                    // Уровень масштабирования. Допустимые значения:
+                    // от 0 (весь мир) до 19.
+                    zoom: 17
+                });
+
+                // // Создание геообъекта с типом точка (метка).
+                // var myGeoObject = new ymaps.GeoObject({
+                //     geometry: {
+                //         type: "Point", // тип геометрии - точка
+                //         coordinates: [48.87219657376512, 2.354223999999991] // координаты точки
+                //     }
+                // });
+
+                var myPlacemark = new ymaps.Placemark([48.87219657376512, 2.354223999999991], {}, {
+                    iconLayout: 'default#image',
+                    iconImageHref: 'img/maps/locationIcon.svg',
+                    iconImageSize: [48, 48],
+                    iconImageOffset: [-22, -45]
+                });
+
+                // Размещение геообъекта на карте.
+                // myMap.geoObjects.add(myGeoObject);
+                myMap.geoObjects.add(myPlacemark);
+            }
+        </script>
+
+        <!-- ScrollBar (custom) -->
+        <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+
+        <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+
+        <!-- Form validation and phone mask -->
+
+
+
+        <!-- Original files -->
+        <link rel="stylesheet" href="css/normalize.css">
+
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+
+    <body>
+        <div class="container">
+
+            <!-- Checkbox (custom) -->
+            <div class="checkbox container__item">
+                <div class="checkbox__wrapper checkbox-wrapper">
+                    <strong class="checkbox-wrapper__title">Категории:</strong>
+
+                    <ul class="checkbox-wrapper__list checkbox-list">
+                        <li class="checkbox-list__item checkbox-item">
+                            <label class="checkbox-item__label" for="check-1">
+                                <input class="checkbox-item__input" type="checkbox" name="dinosaurs" id="check-1">
+
+                                <span class="checkbox-item__check-icon"></span>
+
+                                <span class="checkbox-item__title">Динозавры</span>
+                            </label>
+                        </li>
+
+                        <li class="checkbox-list__item checkbox-item">
+                            <label class="checkbox-item__label" for="check-2">
+                                <input class="checkbox-item__input" type="checkbox" name="bears" id="check-2">
+
+                                <span class="checkbox-item__check-icon"></span>
+
+                                <span class="checkbox-item__title">Медведи</span>
+                            </label>
+                        </li>
+
+                        <li class="checkbox-list__item checkbox-item">
+                            <label class="checkbox-item__label" for="check-3">
+                                <input class="checkbox-item__input" type="checkbox" name="roe-deers" id="check-3">
+
+                                <span class="checkbox-item__check-icon"></span>
+
+                                <span class="checkbox-item__title">Косули</span>
+                            </label>
+                        </li>
+
+                        <li class="checkbox-list__item checkbox-item">
+                            <label class="checkbox-item__label" for="check-4">
+                                <input class="checkbox-item__input" type="checkbox" name="foxes" id="check-4">
+
+                                <span class="checkbox-item__check-icon"></span>
+
+                                <span class="checkbox-item__title">Лисы</span>
+                            </label>
+                        </li>
+
+                        <li class="checkbox-list__item checkbox-item">
+                            <label class="checkbox-item__label" for="check-5">
+                                <input class="checkbox-item__input" type="checkbox" name="wolves" id="check-5">
+
+                                <span class="checkbox-item__check-icon"></span>
+
+                                <span class="checkbox-item__title">Волки</span>
+                            </label>
+                        </li>
+
+                        <li class="checkbox-list__item checkbox-item">
+                            <label class="checkbox-item__label" for="check-6">
+                                <input class="checkbox-item__input" type="checkbox" name="deers-and-mooses" id="check-6">
+
+                                <span class="checkbox-item__check-icon"></span>
+
+                                <span class="checkbox-item__title">Олени и лоси</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Select (custom) -->
+            <div class="select container__item">
+                <select class="js-choice" name="materials" id="">
+                    <option value="">Материал</option>
+                    <option value="wood">Древесина</option>
+                    <option value="metal">Метал</option>
+                    <option value="rock">Камень</option>
+                    <option value="plastic">Пластик</option>
+                    <option value="composite">Композитный</option>
+                    <option value="gypsum">Гипс</option>
+                </select>
+
+                <!-- choises library -->
+                <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+                <script>
+                    const element = document.querySelector('.js-choice');
+                    const choices = new Choices(element, {
+
+                        searchEnabled: false,
+                        shouldSort: false,
+                    });
+                </script>
+            </div>
+
+            <!-- Yandex Maps (custom) -->
+            <div class="maps container__item">
+                <div id="map"></div>
+            </div>
+
+            <!-- ScrollBar (custom) -->
+            <div class="scrollbar container__item">
+                <div class="scrollbar__box" data-simplebar>
+                    Сложно сказать, почему многие известные личности представлены в исключительно положительном свете. Лишь активно развивающиеся страны третьего мира будут объективно рассмотрены соответствующими инстанциями. Мы вынуждены отталкиваться от того, что высокотехнологичная концепция общественного уклада представляет собой интересный эксперимент проверки глубокомысленных рассуждений. Имеется спорная точка зрения, гласящая примерно следующее: непосредственные участники технического прогресса освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, обнародованы. Значимость этих проблем настолько очевидна, что социально-экономическое развитие, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для первоочередных требований. Сложно сказать, почему многие известные личности представлены в исключительно положительном свете. Лишь активно развивающиеся страны третьего мира будут объективно рассмотрены соответствующими инстанциями. Мы вынуждены отталкиваться от того, что высокотехнологичная концепция общественного уклада представляет собой интересный эксперимент проверки глубокомысленных рассуждений. Имеется спорная точка зрения, гласящая примерно следующее: непосредственные участники технического прогресса освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, обнародованы. Значимость этих проблем настолько очевидна, что социально-экономическое развитие, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для первоочередных требований. Сложно сказать, почему многие известные личности представлены в исключительно положительном свете. Лишь активно развивающиеся страны третьего мира будут объективно рассмотрены соответствующими инстанциями. Мы вынуждены отталкиваться от того, что высокотехнологичная концепция общественного уклада представляет собой интересный эксперимент проверки глубокомысленных рассуждений. Имеется спорная точка зрения, гласящая примерно следующее: непосредственные участники технического прогресса освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, обнародованы. Значимость этих проблем настолько очевидна, что социально-экономическое развитие, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для первоочередных требований.
+                </div>
+            </div>
+
+            <!-- Form validation and phone mask -->
+            <div class="form-wrapper container__item">
+                <form class="form" action="https://jsonplaceholder.typicode.com/posts" method="POST">
+                    <label class="form__label">
+                        <input type="text" data-validate-field="name" placeholder="Имя*" class="form__input" name="name">
+                    </label>
+
+                    <label class="form__label">
+                        <input type="tel" data-validate-field="tel" placeholder="Телефон*" class="form__input" name="tel">
+                    </label>
+
+                    <label class="form__label">
+                        <input type="email" data-validate-field="email" placeholder="E-mail*" class="form__input" name="email">
+                    </label>
+
+                    <button class="form__btn">Заказать</button>
+                </form>
+
+                <!-- Form validation and phone mask (JS) -->
+                    <!-- form Validation -->
+                <script src="scripts/formValidationAndMask/justValidateMaster/dist/js/just-validate.min.js"></script>
+
+                    <!-- input Mask -->
+                <script src="scripts/formValidationAndMask/inputMask/dist/inputmask.min.js"></script>
+
+                <script>
+                    // input Mask
+                    let selector = document.querySelector('input[type="tel"]');
+
+                    let im = new Inputmask("+7(999) 999-99-99");
+
+                    im.mask(selector);
+
+                    // form validation
+                    new JustValidate('.form', {
+                        rules: {
+                            email: {
+                                required: true,
+                                email: true
+                            },
+
+                            tel: {
+                                required: true,
+                                function: (name, value) => {
+                                    const phone = selector.inputmask.unmaskedvalue();
+                                    return Number(phone) && phone.length === 10;
+                                }
+                            },
+
+                            name: {
+                                required: true
+                            },
+                        },
+
+                        messages: {
+                            email: {
+                                required: 'Укажите ваш e-mail',
+                            },
+
+                            tel: {
+                                required: 'Укажите ваш телефон',
+                            },
+
+                            name: {
+                                required: 'Как вас зовут?',
+                            }
+                        },
+
+                        colorWrong: '#ff5c00',
+                    });
+                </script>
+            </div>
+
+            <!-- Tooltip (custom) -->
+            <div class="tooltip container__item">
+                <div class="text">
+                    Следует отметить, что <span class="line-break"></span> социально-экономическое развитие способствует повышению качества переосмысления внешнеэкономических политик.
+                </div>
+
+                <div class="tooltip__icon"></div>
+
+                <div class="tooltip__wrapper-direction"></div>
+
+                <div class="tooltip__wrapper">
+                    <div class="tooltip__description">
+                        <span class="tooltip__description_text">
+                            Глава 2, страница 176
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
